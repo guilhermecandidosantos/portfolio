@@ -1,4 +1,9 @@
+'use client';
+
+import { motion } from 'motion/react';
 import Image from 'next/image';
+
+import { containerVariants, imageVariants, itemVariants } from './Motions';
 
 interface StackCardProps {
   name: string;
@@ -7,6 +12,8 @@ interface StackCardProps {
   imageSrc: string;
 }
 
+const MotionImage = motion.create(Image);
+
 export function StackCard({
   name,
   description,
@@ -14,19 +21,43 @@ export function StackCard({
   imageSrc,
 }: StackCardProps) {
   return (
-    <div className='flex flex-col bg-white/10 p-4 rounded-md'>
-      <header className='flex flex-row gap-2 items-center'>
-        <Image src={imageSrc} alt={name} width={42} height={42} />
-        <div className='flex flex-col -space-y-2'>
-          <h1 className='text-md font-bold'>{name}</h1>
-          <span className='text-muted text-sm'>{category}</span>
-        </div>
-      </header>
-      <main className='mt-4'>
-        <p className='line-clamp-3 leading-6 min-h-18 text-secondary'>
+    <motion.div
+      className='flex flex-col bg-white/10 p-4 rounded-md'
+      variants={itemVariants}
+      initial='hidden'
+      animate='visible'
+    >
+      <motion.header
+        className='flex flex-row gap-2 items-center'
+        variants={itemVariants}
+      >
+        <MotionImage
+          src={imageSrc}
+          alt={name}
+          width={42}
+          height={42}
+          variants={imageVariants}
+        />
+        <motion.div
+          className='flex flex-col -space-y-2'
+          variants={itemVariants}
+        >
+          <motion.h1 className='text-md font-bold' variants={itemVariants}>
+            {name}
+          </motion.h1>
+          <motion.span className='text-muted text-sm' variants={itemVariants}>
+            {category}
+          </motion.span>
+        </motion.div>
+      </motion.header>
+      <motion.main className='mt-4' variants={itemVariants}>
+        <motion.p
+          className='line-clamp-3 leading-6 min-h-18 text-secondary'
+          variants={itemVariants}
+        >
           {description}
-        </p>
-      </main>
-    </div>
+        </motion.p>
+      </motion.main>
+    </motion.div>
   );
 }
