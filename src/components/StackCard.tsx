@@ -3,7 +3,7 @@
 import { motion } from 'motion/react';
 import Image from 'next/image';
 
-import { containerVariants, imageVariants, itemVariants } from './Motions';
+import { imageVariants, itemVariants } from './Motions';
 
 interface StackCardProps {
   name: string;

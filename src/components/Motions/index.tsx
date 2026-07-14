@@ -1,6 +1,6 @@
 'use client';
 
-import { stagger, type Variants } from 'motion/react';
+import { motion, stagger, type Variants } from 'motion/react';
 
 export const containerVariants: Variants = {
   hidden: {},
@@ -79,3 +79,25 @@ export const pulseVariants: Variants = {
     },
   },
 };
+
+interface MotionRightToLeftContainerProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+export function MotionRightToLeftContainer({
+  children,
+  className,
+}: MotionRightToLeftContainerProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: 24, filter: 'blur(8px)' }}
+      whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}

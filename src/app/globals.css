@@ -42,7 +42,7 @@
   --color-subtle: #1e293b;
   --color-default: #293249;
   --color-strong: #3f3e5c;
-  --color-accent: rgba(139, 92, 246, 0.55);
+  --color-accent-bg: rgba(139, 92, 246, 0.55);
 
   /* Semantic */
   --color-success: #22c55e;
@@ -178,7 +178,7 @@
   --color-subtle: var(--color-subtle);
   --color-default: var(--color-default);
   --color-strong: var(--color-strong);
-  --color-accent: var(--color-accent);
+  --color-accent-bg: var(--color-accent-bg);
 
   --color-success: var(--color-success);
   --color-success-bg: var(--color-success-bg);
