@@ -105,7 +105,7 @@ export function Header() {
 
   return (
     <header className='bg-overlay w-full border-b border-white/10 px-4'>
-      <div className='mx-auto flex h-20 w-full max-w-[80%] items-center justify-between'>
+      <div className='mx-auto flex h-20 w-full max-w-[70%] items-center justify-between'>
         <div className='flex items-center gap-4'>
           <span className='bg-gradient-primary rounded-sm p-2 text-h4 font-bold text-white'>
             GS
@@ -130,8 +130,8 @@ export function Header() {
                   items-center justify-center
                   text-secondary
                   transition-colors duration-200
-                  hover:text-primary-500
-                  data-[active=true]:text-primary-500
+                  hover:text-purple-500
+                  data-[active=true]:text-purple-500
                 '
               >
                 <span
@@ -158,7 +158,7 @@ export function Header() {
               absolute bottom-0 left-0
               h-[2px]
               rounded-full
-              bg-primary-500
+              bg-purple-500
               shadow-navlink
               transition-[transform,width,opacity]
               duration-300
@@ -172,7 +172,7 @@ export function Header() {
           />
         </nav>
 
-        <button className='bg-gradient-primary py-2 px-4 rounded-md font-semibold cursor-pointer hover:shadow-navlink flex items-center gap-2'>
+        <button className='bg-gradient-primary py-2 px-4 rounded-md font-semibold cursor-pointer hover:shadow-navlink flex items-center gap-2 transition-all duration-200 hover:scale-105'>
           Vamos conversar
           <MoveRight className='size-4' />
         </button>
