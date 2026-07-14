@@ -168,7 +168,7 @@ export function Header() {
           />
         </nav>
 
-        <button className='bg-gradient-primary py-2 px-4 rounded-md font-semibold cursor-pointer hover:shadow-navlink flex items-center gap-2 transition-all duration-200 hover:scale-105'>
+        <button className='bg-gradient-primary py-2 px-4 rounded-md font-semibold cursor-pointer hover:shadow-navlink flex items-center gap-2 transition-all duration-200 hover:scale-105 invisible'>
           Vamos conversar
           <MoveRight className='size-4' />
         </button>

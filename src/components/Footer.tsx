@@ -1,5 +1,4 @@
 import { Mail } from 'lucide-react';
-import Image from 'next/image';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export function Footer() {

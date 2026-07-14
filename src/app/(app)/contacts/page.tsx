@@ -1,3 +1,9 @@
+import { ContactPageContent } from '@/app/(app)/contacts/ContactPageContent';
+
 export default function Contacts() {
-  return <h1>Contatos</h1>;
+  return (
+    <div>
+      <ContactPageContent />
+    </div>
+  );
 }
