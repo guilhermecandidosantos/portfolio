@@ -1,0 +1,48 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy
+        uses: appleboy/ssh-action@v1.2.5
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+
+          script: |
+            set -e
+
+            export NVM_DIR="/root/.nvm"
+            export PATH="$NVM_DIR/versions/node/v24.18.0/bin:/root/.local/share/pnpm/bin:$PATH"
+
+            cd /opt/portfolio/
+
+            git pull origin main
+
+            pnpm install --frozen-lockfile
+
+            echo "Deploying WEB..."
+
+            pnpm run build
+
+            systemctl restart docker
+            docker start portfolio-redis
+
+            systemctl restart portfolio
+
+     
