@@ -326,7 +326,9 @@ export function ContactPageContent() {
                   type='text'
                   required
                   placeholder='Seu nome'
-                  className='h-12 w-full rounded-lg border border-slate-800 bg-[#080c16] px-4 text-sm text-slate-100 outline-none transition-colors placeholder:text-slate-600 hover:border-slate-700 focus:border-violet-500 focus:ring-3 focus:ring-violet-500/15'
+                  className='h-12 w-full rounded-lg border border-slate-800 bg-[#080c16] px-4 text-sm text-slate-100 outline-none transition-colors placeholder:text-slate-600 not-disabled:hover:border-slate-700 disabled:cursor-not-allowed focus:border-violet-500 focus:ring-3 focus:ring-violet-500/15'
+                  disabled={isPending}
+                  aria-busy={isPending}
                 />
               </div>
 
@@ -344,7 +346,9 @@ export function ContactPageContent() {
                   type='email'
                   required
                   placeholder='seu@email.com'
-                  className='h-12 w-full rounded-lg border border-slate-800 bg-[#080c16] px-4 text-sm text-slate-100 outline-none transition-colors placeholder:text-slate-600 hover:border-slate-700 focus:border-violet-500 focus:ring-3 focus:ring-violet-500/15'
+                  className='h-12 w-full rounded-lg border border-slate-800 bg-[#080c16] px-4 text-sm text-slate-100 outline-none transition-colors placeholder:text-slate-600 not-disabled:hover:border-slate-700 disabled:cursor-not-allowed focus:border-violet-500 focus:ring-3 focus:ring-violet-500/15'
+                  disabled={isPending}
+                  aria-busy={isPending}
                 />
               </div>
             </motion.div>
@@ -359,7 +363,7 @@ export function ContactPageContent() {
                   <motion.label
                     key={value}
                     whileHover={
-                      shouldReduceMotion
+                      shouldAnimate
                         ? undefined
                         : {
                             y: -2,
@@ -367,7 +371,7 @@ export function ContactPageContent() {
                           }
                     }
                     whileTap={
-                      shouldReduceMotion
+                      shouldAnimate
                         ? undefined
                         : {
                             scale: 0.97,
@@ -381,9 +385,11 @@ export function ContactPageContent() {
                       value={value}
                       defaultChecked={index === 0}
                       className='peer sr-only'
+                      disabled={isPending}
+                      aria-busy={isPending}
                     />
 
-                    <span className='inline-flex min-h-10 items-center gap-2 rounded-lg border border-slate-800 bg-[#080c16] px-4 text-sm font-medium text-slate-400 transition-all hover:border-slate-700 hover:text-slate-200 peer-checked:border-violet-500 peer-checked:bg-linear-to-r peer-checked:from-violet-600 peer-checked:to-indigo-600 peer-checked:text-white peer-focus-visible:ring-3 peer-focus-visible:ring-violet-500/25'>
+                    <span className='inline-flex min-h-10 items-center gap-2 rounded-lg border border-slate-800 bg-[#080c16] px-4 text-sm font-medium text-slate-400 transition-all not-disabled:hover:border-slate-700 not-disabled:hover:text-slate-200 disabled:cursor-not-allowed peer-checked:border-violet-500 peer-checked:bg-linear-to-r peer-checked:from-violet-600 peer-checked:to-indigo-600 peer-checked:text-white peer-focus-visible:ring-3 peer-focus-visible:ring-violet-500/25'>
                       <Icon aria-hidden='true' className='size-4' />
 
                       {label}
@@ -407,7 +413,9 @@ export function ContactPageContent() {
                 required
                 rows={6}
                 placeholder='Descreva seu projeto ou dúvida...'
-                className='min-h-40 w-full resize-y rounded-lg border border-slate-800 bg-[#080c16] px-4 py-3 text-sm leading-6 text-slate-100 outline-none transition-colors placeholder:text-slate-600 hover:border-slate-700 focus:border-violet-500 focus:ring-3 focus:ring-violet-500/15'
+                className='min-h-40 w-full resize-y rounded-lg border border-slate-800 bg-[#080c16] px-4 py-3 text-sm leading-6 text-slate-100 outline-none transition-colors placeholder:text-slate-600 not-disabled:hover:border-slate-700 disabled:cursor-not-allowed focus:border-violet-500 focus:ring-3 focus:ring-violet-500/15'
+                disabled={isPending}
+                aria-busy={isPending}
               />
             </motion.div>
 
@@ -429,7 +437,7 @@ export function ContactPageContent() {
                       scale: 0.985,
                     }
               }
-              className='mt-5 inline-flex min-h-13 w-full items-center justify-center gap-3 rounded-lg bg-linear-to-r from-violet-600 via-indigo-600 to-blue-600 px-5 text-base font-semibold text-white shadow-lg shadow-violet-950/20 cursor-pointer'
+              className='mt-5 inline-flex min-h-13 w-full items-center justify-center gap-3 rounded-lg bg-linear-to-r from-violet-600 via-indigo-600 to-blue-600 px-5 text-base font-semibold text-white shadow-lg shadow-violet-950/20 cursor-pointer disabled:cursor-not-allowed'
               disabled={isPending}
               aria-busy={isPending}
             >
