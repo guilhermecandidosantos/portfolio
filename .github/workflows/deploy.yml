@@ -9,10 +9,23 @@ jobs:
   changes:
     runs-on: ubuntu-latest
 
+    outputs:
+      only_readme: ${{ steps.only_readme.outputs.readme }}
+
     steps:
       - uses: actions/checkout@v4
 
+      # Verifica se TODOS os arquivos alterados são README.md
+      - id: only_readme
+        uses: dorny/paths-filter@v3
+        with:
+          predicate-quantifier: every
+          filters: |
+            readme:
+              - 'README.md'
+
   deploy:
+    needs: changes
     runs-on: ubuntu-latest
 
     steps:
@@ -34,6 +47,11 @@ jobs:
 
             git pull origin main
 
+            if [ "${{ needs.changes.outputs.only_readme }}" = "true" ]; then
+              echo "Somente README.md foi alterado. Finalizando deploy."
+              exit 0
+            fi
+
             pnpm install --frozen-lockfile
 
             echo "Deploying WEB..."
@@ -44,5 +62,3 @@ jobs:
             docker start portfolio-redis
 
             systemctl restart portfolio
-
-     
