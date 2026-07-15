@@ -7,17 +7,20 @@ import {
   Clock3,
   Ellipsis,
   Handshake,
+  Loader2,
   LockKeyhole,
   Mail,
-  MessageCircle,
   MessagesSquare,
   Rocket,
   Send,
 } from 'lucide-react';
 import { motion, useReducedMotion, type Variants } from 'motion/react';
 import Link from 'next/link';
-import type { FormEvent } from 'react';
+import { requestFormReset } from 'react-dom';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+
+import { sendContactMessageAction } from '@/app/actions/send-contact-message';
+import { useFormState } from '@/app/hooks/use-form-state';
 
 const easing = [0.22, 1, 0.36, 1] as const;
 
@@ -217,6 +220,18 @@ const calloutVariants: Variants = {
 export function ContactPageContent() {
   const shouldReduceMotion = useReducedMotion();
 
+  const [formState, handleSubmit, isPending] = useFormState(
+    sendContactMessageAction,
+  );
+
+  const { success, message, errors } = formState;
+
+  if (success) {
+    requestFormReset(document.querySelector('form') as HTMLFormElement);
+  }
+
+  const shouldAnimate = isPending || shouldReduceMotion;
+
   return (
     <motion.section
       aria-labelledby='contact-title'
@@ -256,7 +271,40 @@ export function ContactPageContent() {
         className='grid items-start gap-8 xl:grid-cols-[minmax(0,1.7fr)_minmax(360px,0.95fr)] xl:gap-12'
       >
         <div className='min-w-0'>
+          {success && (
+            <div className='mb-4 rounded-lg bg-green-500/20 p-4 text-sm text-green-500'>
+              Mensagem enviada com sucesso! Obrigado por entrar em contato. Eu
+              irei responder o mais rápido possível.
+            </div>
+          )}
+          {!success && message && (
+            <div className='mb-4 rounded-lg bg-rose-500/20 p-4 text-sm text-rose-500'>
+              {message}
+              {errors && (
+                <ul className='mt-2 list-disc list-inside text-sm text-rose-500'>
+                  {errors.name &&
+                    errors.name.map((error, index) => (
+                      <li key={index}>{error}</li>
+                    ))}
+                  {errors.email &&
+                    errors.email.map((error, index) => (
+                      <li key={index}>{error}</li>
+                    ))}
+                  {errors.subject &&
+                    errors.subject.map((error, index) => (
+                      <li key={index}>{error}</li>
+                    ))}
+                  {errors.message &&
+                    errors.message.map((error, index) => (
+                      <li key={index}>{error}</li>
+                    ))}
+                </ul>
+              )}
+            </div>
+          )}
+
           <motion.form
+            onSubmit={handleSubmit}
             variants={formCardVariants}
             className='rounded-xl border border-slate-800 bg-slate-950/55 p-5 shadow-[0_18px_60px_rgba(0,0,0,0.24)] backdrop-blur-sm sm:p-7'
           >
@@ -367,7 +415,7 @@ export function ContactPageContent() {
               variants={fieldVariants}
               type='submit'
               whileHover={
-                shouldReduceMotion
+                shouldAnimate
                   ? undefined
                   : {
                       scale: 1.015,
@@ -375,16 +423,24 @@ export function ContactPageContent() {
                     }
               }
               whileTap={
-                shouldReduceMotion
+                shouldAnimate
                   ? undefined
                   : {
                       scale: 0.985,
                     }
               }
               className='mt-5 inline-flex min-h-13 w-full items-center justify-center gap-3 rounded-lg bg-linear-to-r from-violet-600 via-indigo-600 to-blue-600 px-5 text-base font-semibold text-white shadow-lg shadow-violet-950/20 cursor-pointer'
+              disabled={isPending}
+              aria-busy={isPending}
             >
-              <Send aria-hidden='true' className='size-5' />
-              Enviar mensagem
+              {isPending ? (
+                <Loader2 size='24' className='animate-spin' />
+              ) : (
+                <>
+                  <Send aria-hidden='true' className='size-5' />
+                  Enviar mensagem
+                </>
+              )}
             </motion.button>
 
             <motion.p

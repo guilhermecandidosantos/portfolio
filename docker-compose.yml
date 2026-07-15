@@ -1,0 +1,23 @@
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: portfolio-redis
+    restart: unless-stopped
+
+    ports:
+      - '6379:6379'
+
+    command:
+      [
+        'redis-server',
+        '--appendonly',
+        'yes',
+        '--requirepass',
+        '${REDIS_PASSWORD}',
+      ]
+
+    volumes:
+      - portfolio_redis_data:/data
+
+volumes:
+  portfolio_redis_data:

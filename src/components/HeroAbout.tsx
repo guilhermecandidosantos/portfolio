@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowDownToLine, ArrowRight, MapPin, Monitor } from 'lucide-react';
+import { ArrowRight, MapPin, Monitor } from 'lucide-react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import { FaGithub, FaLinkedin } from 'react-icons/fa6';
@@ -9,7 +9,6 @@ import {
   containerVariants,
   itemVariants,
   MotionRightToLeftContainer,
-  pulseVariants,
 } from '@/components/Motions';
 
 export function HeroAbout() {

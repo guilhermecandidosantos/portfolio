@@ -1,13 +1,6 @@
 'use client';
 
-import {
-  ChartNoAxesColumnIncreasing,
-  CodeXml,
-  Crosshair,
-  Headset,
-  Landmark,
-  Settings,
-} from 'lucide-react';
+import { CodeXml, Crosshair, Landmark } from 'lucide-react';
 import { motion } from 'motion/react';
 import { FaUsers } from 'react-icons/fa';
 
