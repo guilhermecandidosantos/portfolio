@@ -45,7 +45,7 @@ export function MeApartCards() {
   ];
 
   return (
-    <div className='grid grid-cols-4 gap-4'>
+    <div className='grid w-full grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4'>
       {whatSetsMeApart.map((apart, index) => (
         <motion.div
           key={index}

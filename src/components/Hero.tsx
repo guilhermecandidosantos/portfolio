@@ -11,36 +11,36 @@ import { MotionCodePreview } from './Motions/MotionCodePreview';
 
 export function Hero() {
   return (
-    <div className='grid grid-cols-2 w-full gap-10'>
+    <section className='grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12'>
       <motion.div
         variants={containerVariants}
         initial='hidden'
         animate='visible'
       >
         <motion.span
-          className='text-purple-400 uppercase border border-purple-500 px-2 rounded-full text-sm'
+          className='inline-flex rounded-full border border-purple-500 px-2 text-sm uppercase text-purple-400'
           variants={itemVariants}
         >
           Desenvolvedor Fullstack
         </motion.span>
 
-        <motion.h1 className='text-h1' variants={itemVariants}>
+        <motion.h1 className='mt-3 text-h1' variants={itemVariants}>
           Tecnologia, código e negocio gerando{' '}
           <span className='text-purple-500'>valor real</span>.
         </motion.h1>
 
-        <motion.p className='text-muted' variants={itemVariants}>
+        <motion.p className='mt-4 text-muted' variants={itemVariants}>
           Desenvolvo aplicações web completas e soluções para sistemas
           corporativos, unindo código, regras de negócio e experiência com
           usuários para transformar processos em resultados reais.
         </motion.p>
 
         <motion.div
-          className='grid grid-cols-4 gap-4 mt-4'
+          className='mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3'
           variants={itemVariants}
         >
           <motion.span
-            className='flex items-center gap-2 border border-white/10 px-2 py-0.5 rounded-sm'
+            className='flex min-w-0 items-center gap-2 rounded-sm border border-white/10 px-2 py-1'
             whileHover={{
               scale: 1.04,
               y: -2,
@@ -58,7 +58,7 @@ export function Hero() {
             React
           </motion.span>
           <motion.span
-            className='flex items-center gap-2 border border-white/10 px-2 py-0.5 rounded-sm'
+            className='flex min-w-0 items-center gap-2 rounded-sm border border-white/10 px-2 py-1'
             whileHover={{
               scale: 1.04,
               y: -2,
@@ -76,7 +76,7 @@ export function Hero() {
             Next.js
           </motion.span>
           <motion.span
-            className='flex items-center gap-2 border border-white/10 px-2 py-0.5 rounded-sm'
+            className='flex min-w-0 items-center gap-2 rounded-sm border border-white/10 px-2 py-1'
             whileHover={{
               scale: 1.04,
               y: -2,
@@ -94,7 +94,7 @@ export function Hero() {
             Node.js
           </motion.span>
           <motion.span
-            className='flex items-center gap-2 border border-white/10 px-2 py-0.5 rounded-sm'
+            className='flex min-w-0 items-center gap-2 rounded-sm border border-white/10 px-2 py-1'
             whileHover={{
               scale: 1.04,
               y: -2,
@@ -112,7 +112,7 @@ export function Hero() {
             Java
           </motion.span>
           <motion.span
-            className='flex items-center gap-2 border border-white/10 px-2 py-0.5 rounded-sm'
+            className='col-span-2 flex min-w-0 items-center gap-2 rounded-sm border border-white/10 px-2 py-1 sm:col-span-1'
             whileHover={{
               scale: 1.04,
               y: -2,
@@ -137,7 +137,7 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          className='flex items-center gap-4 mt-4'
+          className='mt-6 flex items-center gap-4'
           variants={itemVariants}
         >
           <Link
@@ -156,13 +156,13 @@ export function Hero() {
           </Link> */}
         </motion.div>
 
-        <motion.div className='flex flex-row gap-4 mt-4'>
+        <motion.div className='mt-4 flex flex-row gap-4'>
           <motion.span
-            className='text-muted text-sm flex gap-2 items-center'
+            className='flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted'
             variants={itemVariants}
           >
             <MapPin className='size-4' />
-            Monte Mor - SP{' '}
+            <span>Monte Mor - SP</span>
             <span className="inline-flex items-center gap-2 text-sm text-muted before:block before:size-1 before:shrink-0 before:rounded-full before:bg-strong before:content-['']">
               Remoto ou região
             </span>
@@ -170,11 +170,11 @@ export function Hero() {
         </motion.div>
       </motion.div>
 
-      <div>
+      <div className='w-full lg:justify-self-end'>
         <MotionCodePreview>
           <CodePreview />
         </MotionCodePreview>
       </div>
-    </div>
+    </section>
   );
 }

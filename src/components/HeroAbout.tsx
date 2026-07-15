@@ -13,7 +13,7 @@ import {
 
 export function HeroAbout() {
   return (
-    <div className='grid grid-cols-2 w-full gap-10'>
+    <section className='grid w-full grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-12'>
       <motion.div
         variants={containerVariants}
         initial='hidden'
@@ -58,26 +58,26 @@ export function HeroAbout() {
       </motion.div>
 
       <MotionRightToLeftContainer>
-        <div className='flex flex-col bg-zinc-800/50 p-4 border border-white/10 rounded-md'>
-          <header className='flex flex-row gap-6'>
+        <div className='flex flex-col rounded-md border border-white/10 bg-zinc-800/50 p-4 sm:p-6'>
+          <header className='flex flex-col gap-5 sm:flex-row sm:gap-6'>
             <Image
               src='/me.jpeg'
               alt=''
               width={200}
               height={200}
-              className='rounded-full h-50 w-50 object-cover object-top shadow-navlink'
+              className='h-32 w-32 self-center rounded-full object-cover object-top shadow-navlink sm:h-50 sm:w-50 sm:self-start'
               quality={100}
             />
 
-            <div className='flex flex-col gap-1 py-4'>
+            <div className='flex min-w-0 flex-col gap-1 sm:py-4'>
               <h3 className='text-h3 font-bold'>
                 Guilherme Cândido dos Santos
               </h3>
-              <p className='text-purple-500 font-bold flex-1'>
+              <p className='flex-1 font-bold text-purple-500'>
                 Desenvolvedor Fullstack e analista de sistemas
               </p>
 
-              <div className='flex flex-col gap-2 text-muted text-sm'>
+              <div className='flex flex-col gap-2 text-sm text-muted'>
                 <span className='text-body inline-flex items-center gap-2 leading-0'>
                   <MapPin className='size-5' />
                   Monte Mor - SP
@@ -90,7 +90,7 @@ export function HeroAbout() {
             </div>
           </header>
 
-          <div className='flex flex-wrap gap-2 mt-4'>
+          <div className='mt-4 flex flex-wrap gap-2'>
             <span className='text-purple-600 py-1 px-4 border border-zinc-600/50 rounded-md'>
               React
             </span>
@@ -123,12 +123,12 @@ export function HeroAbout() {
             </span>
           </div>
 
-          <div className='flex flex-row gap-4 mt-4'>
+          <div className='mt-4 flex flex-col gap-3 sm:flex-row sm:gap-4'>
             <a
               href='https://github.com/guilhermecandidosantos'
               target='_blank'
               rel='noopener noreferrer'
-              className='text-muted flex flex-row items-center hover:scale-105 gap-2 hover:text-purple-500 transition-all duration-100 py-1 px-4 border border-zinc-600/50 rounded-md'
+              className='flex items-center justify-center gap-2 rounded-md border border-zinc-600/50 px-4 py-2 text-muted transition-all duration-100 hover:scale-105 hover:text-purple-500 sm:justify-start'
             >
               <FaGithub size={24} />
               GitHub
@@ -139,7 +139,7 @@ export function HeroAbout() {
               href='https://linkedin.com/in/guilhermecandidosantos/'
               target='_blank'
               rel='noopener noreferrer'
-              className='text-muted flex flex-row items-center hover:scale-105 gap-2 hover:text-purple-500 transition-all duration-100 py-1 px-4 border border-zinc-600/50 rounded-md'
+              className='flex items-center justify-center gap-2 rounded-md border border-zinc-600/50 px-4 py-2 text-muted transition-all duration-100 hover:scale-105 hover:text-purple-500 sm:justify-start'
             >
               <FaLinkedin size={24} />
               Linkedin
@@ -147,6 +147,6 @@ export function HeroAbout() {
           </div>
         </div>
       </MotionRightToLeftContainer>
-    </div>
+    </section>
   );
 }

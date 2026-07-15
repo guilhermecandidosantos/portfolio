@@ -53,7 +53,7 @@ export function HomePageContent() {
     <div>
       <Hero />
 
-      <div className='w-full mt-12'>
+      <section className='mt-12 w-full sm:mt-16'>
         <motion.div
           className='w-full flex flex-col items-center justify-center'
           initial='hidden'
@@ -61,23 +61,23 @@ export function HomePageContent() {
           variants={containerVariants}
         >
           <motion.span
-            className='text-purple-500 uppercase px-2 text-sm'
+            className='px-2 text-center text-sm uppercase text-purple-500'
             variants={pulseVariants}
           >
             Desenvolvedor Fullstack
           </motion.span>
 
-          <motion.h2 className='text-motion.h2' variants={pulseVariants}>
+          <motion.h2 className='text-center text-h2' variants={pulseVariants}>
             Stack que uso no dia a dia
           </motion.h2>
 
-          <div className='grid grid-cols-6 gap-4 mt-2 w-full'>
+          <div className='mt-4 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6'>
             {stackCards.map((card) => (
               <StackCard key={card.name} {...card} />
             ))}
           </div>
         </motion.div>
-      </div>
+      </section>
     </div>
   );
 }

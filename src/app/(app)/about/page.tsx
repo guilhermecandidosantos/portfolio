@@ -19,9 +19,9 @@ export default function About() {
     <div>
       <HeroAbout />
 
-      <div className='mt-8 w-full flex flex-col items-center gap-4'>
+      <section className='mt-12 flex w-full flex-col items-center gap-4 sm:mt-16'>
         <motion.span
-          className='text-body uppercase text-purple-500'
+          className='px-2 text-center text-body uppercase text-purple-500'
           variants={pulseVariants}
           initial='hidden'
           whileInView='visible'
@@ -30,11 +30,11 @@ export default function About() {
         </motion.span>
 
         <ExperienceCards />
-      </div>
+      </section>
 
-      <div className='mt-8 w-full flex flex-col items-center gap-4'>
+      <section className='mt-12 flex w-full flex-col items-center gap-4 sm:mt-16'>
         <motion.span
-          className='text-body uppercase text-purple-500'
+          className='px-2 text-center text-body uppercase text-purple-500'
           variants={pulseVariants}
           initial='hidden'
           whileInView='visible'
@@ -43,13 +43,13 @@ export default function About() {
         </motion.span>
 
         <MeApartCards />
-      </div>
+      </section>
 
-      <section className='mx-auto w-full px-6 py-20 lg:px-8'>
+      <section className='mx-auto w-full py-16 sm:py-20'>
         <Trajectory />
       </section>
 
-      <div className='mx-auto w-full px-6 py-20 lg:px-8'>
+      <div className='mx-auto w-full py-16 sm:py-20'>
         <Currently />
       </div>
     </div>

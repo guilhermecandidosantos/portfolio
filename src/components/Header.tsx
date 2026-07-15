@@ -100,17 +100,22 @@ export function Header() {
   }, [pathname]);
 
   return (
-    <header className='bg-overlay w-full border-b border-white/10 px-4'>
-      <div className='mx-auto flex h-20 w-full max-w-[70%] items-center justify-between'>
-        <div className='flex items-center gap-4'>
+    <header className='w-full border-b border-white/10 bg-overlay px-4'>
+      <div className='mx-auto flex h-16 w-full max-w-[100rem] items-center justify-between sm:h-20'>
+        <div className='flex shrink-0 items-center gap-3 sm:gap-4'>
           <span className='bg-gradient-primary rounded-sm p-2 text-h4 font-bold text-white'>
             GS
           </span>
 
-          <span className='text-h4'>Guilherme Cândido dos Santos</span>
+          <span className='hidden text-h4 xl:inline'>
+            Guilherme Cândido dos Santos
+          </span>
         </div>
 
-        <nav ref={navRef} className='relative flex h-full items-center gap-8'>
+        <nav
+          ref={navRef}
+          className='relative flex h-full items-center gap-1 sm:gap-4 md:gap-8'
+        >
           {menuItems.map((item) => {
             const active = isPathActive(pathname, item.href);
 
@@ -122,7 +127,7 @@ export function Header() {
                 data-active={active}
                 aria-current={active ? 'page' : undefined}
                 className='
-                  flex h-full w-20 shrink-0
+                  flex h-full w-14 shrink-0 sm:w-20
                   items-center justify-center
                   text-secondary
                   transition-colors duration-200

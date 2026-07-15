@@ -57,7 +57,7 @@ export default function RootLayout({
     <html lang='pt-BR' className={`${inter.variable} h-full antialiased`}>
       <body className='flex flex-col min-h-screen'>
         <Header />
-        <main className='max-w-[70%] w-full mx-auto mt-8 flex-1'>
+        <main className='mx-auto mt-6 w-full max-w-[100rem] flex-1 px-4 sm:mt-8 sm:px-6 lg:px-8'>
           {children}
         </main>
         <Footer />

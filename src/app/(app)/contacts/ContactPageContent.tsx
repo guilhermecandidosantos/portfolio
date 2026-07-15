@@ -235,7 +235,7 @@ export function ContactPageContent() {
   return (
     <motion.section
       aria-labelledby='contact-title'
-      className='mx-auto w-full px-5 py-12 sm:px-8 lg:px-10 lg:py-16'
+      className='mx-auto w-full overflow-x-clip py-12 lg:py-16'
       variants={pageVariants}
       initial={shouldReduceMotion ? false : 'hidden'}
       whileInView={shouldReduceMotion ? undefined : 'visible'}
@@ -306,7 +306,7 @@ export function ContactPageContent() {
           <motion.form
             onSubmit={handleSubmit}
             variants={formCardVariants}
-            className='rounded-xl border border-slate-800 bg-slate-950/55 p-5 shadow-[0_18px_60px_rgba(0,0,0,0.24)] backdrop-blur-sm sm:p-7'
+            className='rounded-xl border border-slate-800 bg-slate-950/55 p-4 shadow-[0_18px_60px_rgba(0,0,0,0.24)] backdrop-blur-sm sm:p-7'
           >
             <motion.div
               variants={fieldVariants}
@@ -458,7 +458,7 @@ export function ContactPageContent() {
 
             <motion.p
               variants={fieldVariants}
-              className='mt-4 flex items-center gap-2 text-xs text-slate-500'
+              className='mt-4 flex items-start gap-2 text-xs text-slate-500'
             >
               <LockKeyhole aria-hidden='true' className='size-4' />
               Seus dados estão seguros. Não compartilhamos suas informações.
@@ -475,7 +475,7 @@ export function ContactPageContent() {
                     borderColor: 'rgba(139, 92, 246, 0.42)',
                   }
             }
-            className='mt-5 grid gap-6 rounded-xl border border-slate-800 bg-slate-950/55 p-5 sm:p-7 lg:grid-cols-[auto_1fr_auto] lg:items-center'
+            className='mt-5 grid gap-6 rounded-xl border border-slate-800 bg-slate-950/55 p-4 sm:p-7 lg:grid-cols-[auto_1fr_auto] lg:items-center'
           >
             <motion.div
               whileHover={
@@ -530,11 +530,11 @@ export function ContactPageContent() {
           </motion.aside>
         </div>
 
-        <motion.aside variants={sidebarVariants} className='space-y-7'>
+        <motion.aside variants={sidebarVariants} className='min-w-0 space-y-7'>
           <motion.section
             variants={sidebarCardVariants}
             aria-labelledby='other-contact-title'
-            className='rounded-xl border border-slate-800 bg-slate-950/55 p-6 shadow-[0_18px_60px_rgba(0,0,0,0.20)] sm:p-8'
+            className='rounded-xl border border-slate-800 bg-slate-950/55 p-5 shadow-[0_18px_60px_rgba(0,0,0,0.20)] sm:p-8'
           >
             <h2
               id='other-contact-title'
@@ -620,7 +620,7 @@ export function ContactPageContent() {
           <motion.section
             variants={sidebarCardVariants}
             aria-labelledby='social-title'
-            className='rounded-xl border border-slate-800 bg-slate-950/55 p-6 shadow-[0_18px_60px_rgba(0,0,0,0.20)] sm:p-8'
+            className='rounded-xl border border-slate-800 bg-slate-950/55 p-5 shadow-[0_18px_60px_rgba(0,0,0,0.20)] sm:p-8'
           >
             <h2
               id='social-title'
