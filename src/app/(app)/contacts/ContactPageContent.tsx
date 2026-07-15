@@ -353,7 +353,12 @@ export function ContactPageContent() {
               </div>
             </motion.div>
 
-            <motion.fieldset variants={fieldVariants} className='mt-5'>
+            <motion.fieldset
+              variants={fieldVariants}
+              className='mt-5'
+              disabled={isPending}
+              aria-busy={isPending}
+            >
               <legend className='mb-3 text-sm font-semibold text-slate-100'>
                 Assunto <span className='text-rose-500'>*</span>
               </legend>
@@ -364,20 +369,22 @@ export function ContactPageContent() {
                     key={value}
                     whileHover={
                       shouldAnimate
-                        ? undefined
-                        : {
+                        ? {
                             y: -2,
                             scale: 1.02,
                           }
+                        : undefined
                     }
                     whileTap={
                       shouldAnimate
-                        ? undefined
-                        : {
+                        ? {
                             scale: 0.97,
                           }
+                        : undefined
                     }
-                    className='cursor-pointer'
+                    className={
+                      isPending ? 'cursor-not-allowed' : 'cursor-pointer'
+                    }
                   >
                     <input
                       type='radio'
@@ -385,11 +392,9 @@ export function ContactPageContent() {
                       value={value}
                       defaultChecked={index === 0}
                       className='peer sr-only'
-                      disabled={isPending}
-                      aria-busy={isPending}
                     />
 
-                    <span className='inline-flex min-h-10 items-center gap-2 rounded-lg border border-slate-800 bg-[#080c16] px-4 text-sm font-medium text-slate-400 transition-all not-disabled:hover:border-slate-700 not-disabled:hover:text-slate-200 disabled:cursor-not-allowed peer-checked:border-violet-500 peer-checked:bg-linear-to-r peer-checked:from-violet-600 peer-checked:to-indigo-600 peer-checked:text-white peer-focus-visible:ring-3 peer-focus-visible:ring-violet-500/25'>
+                    <span className='inline-flex min-h-10 items-center gap-2 rounded-lg border border-slate-800 bg-[#080c16] px-4 text-sm font-medium text-slate-400 transition-all peer-not-disabled:hover:border-slate-700 peer-not-disabled:hover:text-slate-200 peer-checked:border-violet-500 peer-checked:bg-linear-to-r peer-checked:from-violet-600 peer-checked:to-indigo-600 peer-checked:text-white peer-focus-visible:ring-3 peer-focus-visible:ring-violet-500/25 peer-disabled:cursor-not-allowed peer-disabled:opacity-50'>
                       <Icon aria-hidden='true' className='size-4' />
 
                       {label}
