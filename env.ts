@@ -14,6 +14,7 @@ export const env = createEnv({
     MAIL_USERNAME: z.email(),
     MAIL_PASSWORD: z.string().min(1),
     MAIL_USERNAME_TO: z.email(),
+    SITE_URL: z.url(),
   },
   client: {},
   shared: {},
@@ -27,6 +28,7 @@ export const env = createEnv({
     MAIL_USERNAME: process.env.MAIL_USERNAME,
     MAIL_PASSWORD: process.env.MAIL_PASSWORD,
     MAIL_USERNAME_TO: process.env.MAIL_USERNAME_TO,
+    SITE_URL: process.env.SITE_URL,
   },
   emptyStringAsUndefined: true,
   // Pula a validação durante o build do Next.js
