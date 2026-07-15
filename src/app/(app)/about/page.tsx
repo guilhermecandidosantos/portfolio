@@ -1,4 +1,5 @@
 import * as motion from 'motion/react-client';
+import type { Metadata } from 'next';
 
 import { Currently } from '@/components/Currently';
 import { ExperienceCards } from '@/components/ExperienceCards';
@@ -6,6 +7,12 @@ import { HeroAbout } from '@/components/HeroAbout';
 import { MeApartCards } from '@/components/MeApartCards';
 import { pulseVariants } from '@/components/Motions';
 import { Trajectory } from '@/components/Trajectory';
+
+export const metadata: Metadata = {
+  title: 'Sobre mim',
+  description:
+    'Conheça a trajetória de Guilherme Cândido dos Santos, desenvolvedor fullstack e analista de sistemas com experiência em ERP Senior, aplicações web e processos corporativos.',
+};
 
 export default function About() {
   return (
