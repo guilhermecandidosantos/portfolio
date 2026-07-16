@@ -10,6 +10,7 @@ import {
   Loader2,
   LockKeyhole,
   Mail,
+  MessageCircle,
   MessagesSquare,
   Rocket,
   Send,
@@ -588,9 +589,9 @@ export function ContactPageContent() {
                 </div>
               </motion.div>
 
-              {/* <motion.a
+              <motion.a
                 variants={sidebarItemVariants}
-                href='https://wa.me/55SEUNUMERO'
+                href='https://wa.me/5519996282085'
                 target='_blank'
                 rel='noreferrer'
                 whileHover={
@@ -610,10 +611,10 @@ export function ContactPageContent() {
                   <h3 className='font-medium text-slate-300'>WhatsApp</h3>
 
                   <p className='mt-1 text-sm font-medium text-emerald-400'>
-                    (19) 99999-9999
+                    (19) 99628-2085
                   </p>
                 </div>
-              </motion.a> */}
+              </motion.a>
             </div>
           </motion.section>
 
